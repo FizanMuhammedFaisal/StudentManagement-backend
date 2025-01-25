@@ -22,6 +22,6 @@ Before running the project, ensure you have the following installed:
 ## Getting Started
 
 ### 1. Clone the Repository
-
+```bash
 git clone https://github.com/your-username/student-management-ts.git
 cd student-management-ts
