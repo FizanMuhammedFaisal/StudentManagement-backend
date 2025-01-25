@@ -25,3 +25,35 @@ Before running the project, ensure you have the following installed:
 ```bash
 git clone https://github.com/your-username/student-management-ts.git
 cd student-management-ts
+
+```
+
+2. Install Dependencies
+bash
+Copy
+npm install
+3. Set Up Environment Variables
+Create a .env file in the root directory and add the following:
+
+env
+Copy
+MONGO_URI=mongodb://localhost:27017/student_db
+PORT=3000
+4. Run the Project
+Development Mode (with hot-reload)
+bash
+Copy
+npm run dev
+This uses ts-node and nodemon to automatically restart the server when changes are made.
+
+Production Mode
+Compile TypeScript to JavaScript:
+
+bash
+Copy
+npm run build
+Start the server:
+
+bash
+Copy
+npm start
