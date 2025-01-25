@@ -28,32 +28,34 @@ cd student-management-ts
 
 ```
 
-2. Install Dependencies
+### 2. Install Dependencies
 bash
 Copy
 npm install
 3. Set Up Environment Variables
 Create a .env file in the root directory and add the following:
 
-env
-Copy
+```bash
 MONGO_URI=mongodb://localhost:27017/student_db
 PORT=3000
-4. Run the Project
+```
+### 4. Run the Project
 Development Mode (with hot-reload)
-bash
-Copy
+```bash
 npm run dev
+```
 This uses ts-node and nodemon to automatically restart the server when changes are made.
 
 Production Mode
 Compile TypeScript to JavaScript:
 
-bash
-Copy
+```bash
+
 npm run build
+```
 Start the server:
 
-bash
-Copy
+```bash
+
 npm start
+```
