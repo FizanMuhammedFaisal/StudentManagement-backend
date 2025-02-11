@@ -1,10 +1,11 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
-export interface IStudent extends Document {
+type Gender = 'Male' | 'Female' | 'Other'
+export interface IStudent {
   name: string
   age: number
-  gender: 'Male' | 'Female' | 'Other'
-  dateofBirth: Date
+  gender: Gender
+  dateOfBirth: Date
   email: string
 }
 

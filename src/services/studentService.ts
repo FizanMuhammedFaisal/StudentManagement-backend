@@ -1,4 +1,5 @@
 import { IStudentRepository } from '../repositories/student.repository'
+import { PIStudentRepository } from '../repositories/student.postgressRepository'
 import { IStudent, Student } from '../models/student.model'
 
 export interface IStudentService {
@@ -13,7 +14,9 @@ export interface IStudentService {
 }
 
 export class StudentService implements IStudentService {
-  constructor(private readonly studentRepository: IStudentRepository) {}
+  constructor(
+    private readonly studentRepository: IStudentRepository | PIStudentRepository
+  ) {}
   async createStudent(student: IStudent): Promise<IStudent> {
     console.log(student)
     const existingStudent = await Student.findOne({ email: student.email })

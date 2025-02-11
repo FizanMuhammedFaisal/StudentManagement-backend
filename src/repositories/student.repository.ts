@@ -1,14 +1,17 @@
 import { IStudent, Student } from '../models/student.model'
 
 export interface IStudentRepository {
-  create(student: IStudent): Promise<IStudent>
+  create(student: Omit<IStudent, 'id'>): Promise<IStudent>
   findAll(): Promise<IStudent[] | null>
-  findById(id: string): Promise<IStudent | null>
-  update(id: string, student: Partial<IStudent>): Promise<IStudent | null>
-  delete(id: string): Promise<void>
+  findById(id: string | number): Promise<IStudent | null>
+  update(
+    id: string | number,
+    student: Partial<IStudent>
+  ): Promise<IStudent | null>
+  delete(id: string | number): Promise<void>
 }
 
-export class StudentRepository implements IStudentRepository {
+export class MongoDBStudentRepository implements IStudentRepository {
   async create(student: IStudent): Promise<IStudent> {
     return await Student.create(student)
   }

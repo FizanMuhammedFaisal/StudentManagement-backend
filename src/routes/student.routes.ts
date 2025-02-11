@@ -1,9 +1,21 @@
 import express from 'express'
 import { StudentController } from '../controllers/student.controller'
-import { StudentService } from '../services/studentService'
-import { StudentRepository } from '../repositories/student.repository'
 
-const studentRepository = new StudentRepository()
+import { StudentService } from '../services/studentService'
+
+import { MongoDBStudentRepository } from '../repositories/student.repository'
+import { PostgressStudentRepository } from '../repositories/student.postgressRepository'
+const DB_TYPE = process.env.DB_TYPE || 'mongo'
+
+let studentRepository
+if (DB_TYPE === 'mongo') {
+  studentRepository = new MongoDBStudentRepository()
+} else if (DB_TYPE === 'postgres') {
+  studentRepository = new PostgressStudentRepository()
+} else {
+  throw new Error('Invalid DB_TYPE. Use "mongo" or "postgres".')
+}
+
 const studentService = new StudentService(studentRepository)
 const studentController = new StudentController(studentService)
 const router = express.Router()
