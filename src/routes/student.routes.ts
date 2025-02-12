@@ -5,7 +5,7 @@ import { StudentService } from '../services/studentService'
 
 import { MongoDBStudentRepository } from '../repositories/student.repository'
 import { PostgressStudentRepository } from '../repositories/student.postgressRepository'
-const DB_TYPE = process.env.DB_TYPE || 'mongo'
+const DB_TYPE = process.env.DB_TYPE || 'postgres'
 
 let studentRepository
 if (DB_TYPE === 'mongo') {

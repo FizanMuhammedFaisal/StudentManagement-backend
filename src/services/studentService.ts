@@ -5,7 +5,7 @@ import { IStudent, Student } from '../models/student.model'
 export interface IStudentService {
   createStudent(student: IStudent): Promise<IStudent>
   getAllStudents(): Promise<IStudent[] | null>
-  getStudentById(id: string): Promise<IStudent | null>
+  getStudentById(id: string | number): Promise<IStudent | null>
   updateStudent(
     id: string,
     student: Partial<IStudent>
@@ -29,7 +29,7 @@ export class StudentService implements IStudentService {
   async getAllStudents(): Promise<IStudent[] | null> {
     return await this.studentRepository.findAll()
   }
-  async getStudentById(id: string): Promise<IStudent | null> {
+  async getStudentById(id: string | number): Promise<IStudent | null> {
     return await this.studentRepository.findById(id)
   }
   async updateStudent(

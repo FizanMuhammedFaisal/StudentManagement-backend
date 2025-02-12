@@ -55,7 +55,7 @@ export class StudentController {
       const student = await this.studentService.getStudentById(id)
       res.status(200).json({ success: true, data: student })
     } catch (error) {
-      res.status(500).json({ success: false, error: 'Failed to find student' })
+      res.status(404).json({ success: false, error: 'Failed to find student' })
     }
   }
   async deleteStudent(
